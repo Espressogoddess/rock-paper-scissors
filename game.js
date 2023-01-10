@@ -1,7 +1,7 @@
 class Game {
     constructor() {
         var computer = new Player('computer', '💻', 0);
-        new astronaut = Player('astronaut', '👩🏻‍🚀', 0);
+        var astronaut = new Player('astronaut', '👩🏻‍🚀', 0);
         this.players = [computer, astronaut];
     }
     startNewGame() {
