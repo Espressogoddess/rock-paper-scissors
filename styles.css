@@ -38,6 +38,19 @@ body {
     height: 75%;
 }
 
+h2 {
+    text-align: center;
+}
+
+button {
+    margin-top: 20px;
+    color: white;
+    background-color: rosybrown;
+    width: 11vw;
+    height: 3vw;
+    border-radius: 3px;
+}
+
 .large-icon {
     height: 15vw;
     width: auto;
