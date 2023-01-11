@@ -1,0 +1,52 @@
+* {
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+header {
+    width: 100vw;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.large-icon {
+    height: 15vw;
+    width: auto;
+}
+
+.player-icon {
+    height: 5vw;
+    width: auto;
+}
+
+.small-icon {
+    height: 3vh;
+    width: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-choices {
+    border: solid black 1px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.game-choice-section {
+    width: 70vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
