@@ -13,7 +13,9 @@ body,
 h3,
 .game-choices, 
 .game-choice-section, 
-.player-section {
+.player-section, 
+.choose-fighter-section,
+.fighter-section {
     display: flex;
 }
 
@@ -34,10 +36,6 @@ body {
     align-items: center;
     width: 99vw;
     height: 75%;
-}
-
-h3 {
-
 }
 
 .large-icon {
@@ -65,7 +63,7 @@ h3 {
     border-radius: 2px;
     flex-direction: column;
     align-items: center;
-    width: 20vw;
+    width: 26vw;
     margin: 3vw;
     padding: 1vw 3vw;
 }
@@ -83,4 +81,15 @@ h3 {
     align-items: center;
     padding-top: 5vh;
     height: 78vh;
+}
+
+.choose-fighter-section {
+    flex-direction: column;
+    align-items: center;
+}
+
+.fighter-section {
+    margin-top: 12vh;
+    flex-direction: column;
+    align-items: center;
 }
