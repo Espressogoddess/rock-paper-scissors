@@ -17,16 +17,17 @@
       <img class="player-icon" id="astro-icon">
       <h2 class="player-name" id="astro-name"></h2>
       <p>Wins: <span id="astro-wins"></span></p>
+      <button class="hidden" id="change-game-button" type="button">Change game</button>
     </section>
-    <section class="game-choice-section" id="choose-game-section">
+    <section id="choose-game-section">
       <h2>Choose your game</h2>
-      <section class="game-choices" id="classic-game" data-game-type="classic">
+      <section class="game-choices" id="classic-game">
         <h3><img class="small-icon" src="src/rock.png">Classic<img class="small-icon" src="src/scissors.png"></h3>
         <p>Rock < Scissors</p>
         <p>Scissors < Paper</p>
         <p>Paper < Rock</p>
       </section>
-      <section class="game-choices" id="space-game" data-game-type="space">
+      <section class="game-choices" id="space-game">
         <h3><img class="small-icon" src="src/laser gun.png">Space<img class="small-icon" src="src/alien.png"></h3>
         <p>Alien < Laser Gun or Rock</p>
         <p>Laser Gun < Paper or Scissors</p>
@@ -35,7 +36,7 @@
         <p>Paper < Rock or Alien</p>
       </section>
     </section>
-    <section class="choose-fighter-section hidden">
+    <section class="hidden" id="choose-fighter-section" >
       <h2>Choose your Fighter</h2>
       <section class="fighter-section hidden" id="classic-fighter-section">
         <div>
@@ -54,7 +55,6 @@
           <img class="large-icon" data-space-fighter="alien" src="src/alien.png">
           <img class="large-icon" data-space-fighter="laser" src="src/laser gun.png">
         </div>
-        
       </section>
     </section>
     <section class="hidden" id="result-section">
