@@ -1,0 +1,95 @@
+* {
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+html {
+    background-color: rosybrown;
+}
+
+html,
+main, 
+header, 
+body,
+h3,
+.game-choices, 
+.game-choice-section, 
+.player-section, 
+.choose-fighter-section,
+.fighter-section {
+    display: flex;
+}
+
+main {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 98vw;
+}
+
+header {
+    width: 50vw;
+    justify-content: center;
+    height: 7vh;
+}
+
+body {
+    flex-direction: column;
+    align-items: center;
+    width: 99vw;
+    height: 75%;
+}
+
+.large-icon {
+    height: 15vw;
+    width: auto;
+}
+
+.player-icon {
+    height: 5vw;
+    width: auto;
+}
+
+.small-icon {
+    height: 3vw;
+    width: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.game-choices {
+    border: solid black 1px;
+    background-color: rgb(219, 165, 165);
+    border-radius: 2px;
+    flex-direction: column;
+    align-items: center;
+    width: 26vw;
+    margin: 3vw;
+    padding: 1vw 3vw;
+}
+
+.game-choice-section {
+    width: 60vw;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-section {
+    background-color: rgb(219, 165, 165);
+    width: 20vw;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5vh;
+    height: 78vh;
+}
+
+.choose-fighter-section {
+    flex-direction: column;
+    align-items: center;
+}
+
+.fighter-section {
+    margin-top: 12vh;
+    flex-direction: column;
+    align-items: center;
+}
