@@ -22,7 +22,8 @@ classicGame.addEventListener('click', function() {
     currentGame.startNewGame('classic');
     hideElement(chooseGame);
     showElement(chooseFighterSection);
-    showElement(classicFighters)
+    showElement(classicFighters);
+    showElement(changeGameButton);
     displayGame();
 })
 
@@ -31,6 +32,7 @@ spaceGame.addEventListener('click', function() {
     hideElement(chooseGame);
     showElement(chooseFighterSection);
     showElement(spaceFighters);
+    showElement(changeGameButton);
     displayGame();
 })
 
