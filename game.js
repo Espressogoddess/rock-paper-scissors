@@ -1,12 +1,12 @@
 class Game {
     constructor() {
-        var computer = new Player('computer', '💻', 0);
-        var astronaut = new Player('astronaut', '👩🏻‍🚀', 0);
-        this.players = [computer, astronaut];
+        var computer = new Player('Computer', 'src/computer.png', 'Computer icon', 0);
+        var astronaut = new Player('AstroKitty', 'src/cat astronaut.png', 'Astronaut kitty icon', 0);
+        this.players = [astronaut, computer];
     }
     startNewGame() {
         for (var i = 0; i < this.players.length; i++) {
-            this.player[i].wins = 0;
+            this.players[i].wins = 0;
         }
     }
 }
