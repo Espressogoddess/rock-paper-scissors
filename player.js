@@ -15,5 +15,3 @@ class Player {
         }
     }
 }
-
-//move fighters to game class
