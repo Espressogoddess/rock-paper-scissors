@@ -4,9 +4,16 @@ class Player {
         this.tokenSource = token;
         this.altText = altText
         this.wins = wins;
-        this.fighter;
+        this.currentFighter;
     }
-    takeTurn(fighter) {
-        this.fighter = fighter;
+    takeTurn(currentFighter, fighters) {
+        if (currentFighter) {
+            this.currentFighter = currentFighter;
+        }
+        else if (fighters) {
+            this.currentFighter = fighters[Math.floor(Math.random() * fighters.length)];
+        }
     }
 }
+
+//move fighters to game class
