@@ -1,8 +1,8 @@
 class Game {
     constructor() {
-        var astronaut = new Player('AstroKitty', 'src/cat astronaut.png', 'Astronaut kitty icon', 0,);
+        var astroKitty = new Player('AstroKitty', 'src/cat astronaut.png', 'Astronaut kitty icon', 0,);
         var computer = new Player('Computer', 'src/computer.png', 'Computer icon', 0);
-        this.players = [astronaut, computer];
+        this.players = [astroKitty, computer];
         this.type;
     }
     startNewGame(gameType) {
