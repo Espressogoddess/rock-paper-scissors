@@ -47,7 +47,7 @@ changeGameButton.addEventListener('click', function() {
 classicFighters.addEventListener('click', function(event) {
     var currentFighter = event.target.dataset.classicFighter;
     currentGame.players[0].fighter = currentFighter;
-    hideElement(classicFighters)
+    setTimeout(hideElement, 200, classicFighters);
 })
 
 function displayPlayerInfo(currentGame) {
