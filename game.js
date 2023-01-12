@@ -4,6 +4,8 @@ class Game {
         var computer = new Player('Computer', 'src/computer.png', 'Computer icon', 0);
         this.players = [astroKitty, computer];
         this.type;
+        this.classicFighters = ['rock', 'paper', 'scissors'];
+        this.spaceFighters = ['rock', 'paper', 'scissors', 'alien', 'laser'];
     }
     startNewGame(gameType) {
         this.type = gameType;
