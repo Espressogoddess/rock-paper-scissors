@@ -6,6 +6,7 @@ class Player {
         this.wins = wins;
         this.fighter;
     }
-    takeTurn() {
+    takeTurn(fighter) {
+        this.fighter = fighter;
     }
 }
