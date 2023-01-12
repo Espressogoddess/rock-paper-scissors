@@ -16,3 +16,4 @@ class Game {
 // A way to keep track of the data for the game board
 // A way to check the Game’s board data for win conditions
 // A way to detect when a game is a draw (no one has won)
+// Do I want to pass in an param/arg in constructor to determine what the fighters are? Then I can dynamically pull from this.fighters to populate on the page.
