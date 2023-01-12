@@ -50,6 +50,13 @@ classicFighters.addEventListener('click', function(event) {
     setTimeout(hideElement, 200, classicFighters);
 })
 
+spaceFighters.addEventListener('click', function(event) {
+    var currentFighter = event.target.dataset.spaceFighter;
+    currentGame.players[0].fighter = currentFighter;
+    console.log(currentGame.players[0].fighter)
+    setTimeout(hideElement, 200, spaceFighters);
+})
+
 function displayPlayerInfo(currentGame) {
     astroName.innerText = currentGame.players[0].name;
     astroWins.innerText = currentGame.players[0].wins;
