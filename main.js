@@ -13,6 +13,7 @@ var chooseGame = document.querySelector('#choose-game-section');
 var chooseFighterSection = document.querySelector('#choose-fighter-section')
 var classicFighters = document.querySelector('#classic-fighter-section');
 var spaceFighters = document.querySelector('#space-fighter-section');
+var chooseFighterHeader = document.querySelector('#choose-fighter-header');
 
 window.addEventListener('load', function () {
     displayPlayerInfo(currentGame)
@@ -23,8 +24,8 @@ classicGame.addEventListener('click', function() {
     hideElement(chooseGame);
     showElement(chooseFighterSection);
     showElement(classicFighters);
+    hideElement(spaceFighters);
     showElement(changeGameButton);
-    displayGame();
 })
 
 spaceGame.addEventListener('click', function() {
@@ -32,8 +33,33 @@ spaceGame.addEventListener('click', function() {
     hideElement(chooseGame);
     showElement(chooseFighterSection);
     showElement(spaceFighters);
+    hideElement(classicFighters);
     showElement(changeGameButton);
-    displayGame();
+
+})
+
+changeGameButton.addEventListener('click', function() {
+    currentGame.startNewGame();
+    hideElement(chooseFighterSection);
+    showElement(chooseGame);
+})
+
+classicFighters.addEventListener('click', function(event) {
+    var currentFighter = event.target.dataset.classicFighter;
+    if(!currentFighter) {
+        return;
+    }
+    currentGame.players[0].takeTurn(currentFighter, null);
+    currentGame.players[1].takeTurn(null, currentGame.classicFighters);
+    setTimeout(hideElement, 200, classicFighters);
+    setTimeout(hideElement, 200, chooseFighterHeader);
+})
+
+spaceFighters.addEventListener('click', function(event) {
+    var currentFighter = event.target.dataset.spaceFighter;
+    currentGame.players[0].fighter = currentFighter;
+    setTimeout(hideElement, 200, spaceFighters);
+    setTimeout(hideElement, 200, chooseFighterHeader);
 })
 
 function displayPlayerInfo(currentGame) {
@@ -54,9 +80,3 @@ function hideElement(element) {
 function showElement(element) {
     element.classList.remove('hidden');
 }
-
-function displayGame() {
-
-
-}
-//remove hidden from change game button after choosing game
