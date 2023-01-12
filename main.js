@@ -23,8 +23,8 @@ classicGame.addEventListener('click', function() {
     hideElement(chooseGame);
     showElement(chooseFighterSection);
     showElement(classicFighters);
+    hideElement(spaceFighters);
     showElement(changeGameButton);
-    displayGame();
 })
 
 spaceGame.addEventListener('click', function() {
@@ -32,8 +32,22 @@ spaceGame.addEventListener('click', function() {
     hideElement(chooseGame);
     showElement(chooseFighterSection);
     showElement(spaceFighters);
+    hideElement(classicFighters);
     showElement(changeGameButton);
-    displayGame();
+
+})
+
+changeGameButton.addEventListener('click', function() {
+    currentGame.startNewGame();
+    console.log(currentGame)
+    hideElement(chooseFighterSection);
+    showElement(chooseGame);
+})
+
+classicFighters.addEventListener('click', function(event) {
+    var currentFighter = event.target.dataset.classicFighter;
+    currentGame.players[0].fighter = currentFighter;
+    hideElement(classicFighters)
 })
 
 function displayPlayerInfo(currentGame) {
@@ -54,9 +68,3 @@ function hideElement(element) {
 function showElement(element) {
     element.classList.remove('hidden');
 }
-
-function displayGame() {
-
-
-}
-//remove hidden from change game button after choosing game
