@@ -13,6 +13,7 @@ var chooseGame = document.querySelector('#choose-game-section');
 var chooseFighterSection = document.querySelector('#choose-fighter-section')
 var classicFighters = document.querySelector('#classic-fighter-section');
 var spaceFighters = document.querySelector('#space-fighter-section');
+var chooseFighterHeader = document.querySelector('#choose-fighter-header');
 
 window.addEventListener('load', function () {
     displayPlayerInfo(currentGame)
@@ -39,22 +40,26 @@ spaceGame.addEventListener('click', function() {
 
 changeGameButton.addEventListener('click', function() {
     currentGame.startNewGame();
-    console.log(currentGame)
     hideElement(chooseFighterSection);
     showElement(chooseGame);
 })
 
 classicFighters.addEventListener('click', function(event) {
     var currentFighter = event.target.dataset.classicFighter;
-    currentGame.players[0].fighter = currentFighter;
+    if(!currentFighter) {
+        return;
+    }
+    currentGame.players[0].takeTurn(currentFighter, null);
+    currentGame.players[1].takeTurn(null, currentGame.classicFighters);
     setTimeout(hideElement, 200, classicFighters);
+    setTimeout(hideElement, 200, chooseFighterHeader);
 })
 
 spaceFighters.addEventListener('click', function(event) {
     var currentFighter = event.target.dataset.spaceFighter;
     currentGame.players[0].fighter = currentFighter;
-    console.log(currentGame.players[0].fighter)
     setTimeout(hideElement, 200, spaceFighters);
+    setTimeout(hideElement, 200, chooseFighterHeader);
 })
 
 function displayPlayerInfo(currentGame) {
