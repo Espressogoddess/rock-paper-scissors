@@ -17,6 +17,7 @@ var chooseFighterHeader = document.querySelector('#choose-fighter-header');
 var choiceIcons = document.querySelectorAll('.choice');
 
 
+
 window.addEventListener('load', function () {
     displayPlayerInfo(currentGame);
 })
@@ -41,9 +42,11 @@ spaceGame.addEventListener('click', function() {
 })
 
 changeGameButton.addEventListener('click', function() {
-    currentGame.startNewGame();
+    currentGame.startNewGame(null);
     hideElement(chooseFighterSection);
     showElement(chooseGame);
+    renderPlayerFighterToken();
+
 })
 
 classicFighters.addEventListener('click', function(event) {
@@ -53,12 +56,9 @@ classicFighters.addEventListener('click', function(event) {
     }
     currentGame.players[0].takeTurn(currentFighter, null);
     currentGame.players[1].takeTurn(null, currentGame.classicFighters);
-    DisplayPlayerChoiceIcon();
-
-   
+    renderPlayerFighterToken();
     setTimeout(hideElement, 400, classicFighters);
     setTimeout(hideElement, 400, chooseFighterHeader);
-    setTimeout(HidePlayerChoiceIcon, 400);
 })
 
 spaceFighters.addEventListener('click', function(event) {
@@ -68,10 +68,9 @@ spaceFighters.addEventListener('click', function(event) {
     }
     currentGame.players[0].takeTurn(currentFighter, null);
     currentGame.players[1].takeTurn(null, currentGame.classicFighters);
-    DisplayPlayerChoiceIcon();
+    renderPlayerFighterToken();
     setTimeout(hideElement, 400, spaceFighters);
     setTimeout(hideElement, 400, chooseFighterHeader);
-    setTimeout(HidePlayerChoiceIcon, 400);
 })
 
 function displayPlayerInfo(currentGame) {
@@ -94,17 +93,17 @@ function showElement(element) {
 }
 
 
-function DisplayPlayerChoiceIcon() {
+function renderPlayerFighterToken() {
+    var currentFighter = currentGame.players[0].currentFighter;
     for (var i = 0; i < choiceIcons.length; i++) {
-        if (choiceIcons[i].dataset.classicChoiceIcon === currentGame.players[0].currentFighter || choiceIcons[i].dataset.spaceChoiceIcon === currentGame.players[0].currentFighter) {
+        var isClassicChoice = choiceIcons[i].dataset.classicChoiceIcon === currentFighter;
+        var isSpaceChoice = choiceIcons[i].dataset.spaceChoiceIcon === currentFighter;
+        if (currentFighter && (isClassicChoice || isSpaceChoice)) {
             choiceIcons[i].src = currentGame.players[0].tokenSource
             choiceIcons[i].style.opacity = "100";
         }
-    }
-}
-
-function HidePlayerChoiceIcon() {
-    for (var i = 0; i < choiceIcons.length; i++) {
-            choiceIcons[i].style.opacity = "0";
+        else {
+            choiceIcons[i].style.opacity = '0'
+        }
     }
 }
