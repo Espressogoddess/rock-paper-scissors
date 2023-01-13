@@ -6,11 +6,9 @@ class Rock {
             return false;
         } else if (opponent === 'scissors') {
             return true;
-        }
-        else if (opponent === 'alien') {
+        } else if (opponent === 'alien') {
             return false;
-        }
-        else if (opponent === 'laser') {
+        } else if (opponent === 'laser') {
             return true;
         }
     }
@@ -24,11 +22,9 @@ class Paper {
             return null;
         } else if (opponent === 'scissors') {
             return false;
-        }
-        else if (opponent === 'alien') {
+        } else if (opponent === 'alien') {
             return true;
-        }
-        else if (opponent === 'laser') {
+        } else if (opponent === 'laser') {
             return false;
         }
     }
@@ -38,17 +34,13 @@ class Scissors {
     beatsFighter(opponent) {
         if (opponent === 'rock') {
             return false;
-        }
-        else if (opponent === 'paper') {
+        } else if (opponent === 'paper') {
             return true;
-        }
-        else if (opponent === 'scissors') {
+        } else if (opponent === 'scissors') {
             return null;
-        }
-        else if (opponent === 'alien') {
+        } else if (opponent === 'alien') {
             return false;
-        }
-        else if (opponent === 'laser') {
+        } else if (opponent === 'laser') {
             return true;
         }
     }
@@ -58,37 +50,29 @@ class Laser {
     beatsFighter(opponent) {
         if (opponent === 'rock') {
             return false;
-        }
-        else if (opponent === 'paper') {
+        } else if (opponent === 'paper') {
             return true;
-        }
-        else if (opponent === 'scissors') {
+        } else if (opponent === 'scissors') {
             return false;
-        }
-        else if (opponent === 'alien') {
+        } else if (opponent === 'alien') {
             return true;
-        }
-        else if (opponent === 'laser') {
+        } else if (opponent === 'laser') {
             return null;
         }
     }
 }
 
-class Alien { 
+class Alien {
     beatsFighter(opponent) {
         if (opponent === 'rock') {
             return true;
-        }
-        else if (opponent === 'paper') {
+        } else if (opponent === 'paper') {
             return false;
-        }
-        else if (opponent === 'scissors') {
+        } else if (opponent === 'scissors') {
             return true;
-        }
-        else if (opponent === 'alien') {
+        } else if (opponent === 'alien') {
             return null;
-        }
-        else if (opponent === 'laser') {
+        } else if (opponent === 'laser') {
             return false;
         }
     }

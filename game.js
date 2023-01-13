@@ -1,6 +1,6 @@
 class Game {
     constructor() {
-        var astroKitty = new Player('AstroKitty', 'src/cat astronaut.png', 'Astronaut kitty icon', 0,);
+        var astroKitty = new Player('AstroKitty', 'src/cat astronaut.png', 'Astronaut kitty icon', 0, );
         var computer = new Player('Computer', 'src/computer.png', 'Computer icon', 0);
         this.players = [astroKitty, computer];
         this.type;
@@ -34,21 +34,13 @@ class Game {
         }
 
         if (choice1Fighter.beatsFighter(choice2)) {
-            this.winner = choice1
+            this.winner = this.players[0].name;
             this.players[0].wins++;
-        } 
-        else if (choice1Fighter.beatsFighter(choice2) === false) {
-            this.winner = choice2;
+        } else if (choice1Fighter.beatsFighter(choice2) === false) {
+            this.winner = this.players[1].name;
             this.players[1].wins++;
-        }
-        else {
+        } else {
             this.winner = 'draw';
         }
     }
 }
-
-// A way to check the Game’s board data for win conditions
-// A way to detect when a game is a draw (no one has won)
-
-
-
