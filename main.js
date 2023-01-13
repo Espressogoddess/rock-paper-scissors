@@ -14,9 +14,12 @@ var chooseFighterSection = document.querySelector('#choose-fighter-section')
 var classicFighters = document.querySelector('#classic-fighter-section');
 var spaceFighters = document.querySelector('#space-fighter-section');
 var chooseFighterHeader = document.querySelector('#choose-fighter-header');
+var choiceIcons = document.querySelectorAll('.choice');
+
+
 
 window.addEventListener('load', function () {
-    displayPlayerInfo(currentGame)
+    displayPlayerInfo(currentGame);
 })
 
 classicGame.addEventListener('click', function() {
@@ -26,6 +29,7 @@ classicGame.addEventListener('click', function() {
     showElement(classicFighters);
     hideElement(spaceFighters);
     showElement(changeGameButton);
+    renderPlayerFighterToken();
 })
 
 spaceGame.addEventListener('click', function() {
@@ -35,13 +39,15 @@ spaceGame.addEventListener('click', function() {
     showElement(spaceFighters);
     hideElement(classicFighters);
     showElement(changeGameButton);
+    renderPlayerFighterToken();
 
 })
 
 changeGameButton.addEventListener('click', function() {
-    currentGame.startNewGame();
+    currentGame.startNewGame(null);
     hideElement(chooseFighterSection);
     showElement(chooseGame);
+
 })
 
 classicFighters.addEventListener('click', function(event) {
@@ -51,15 +57,21 @@ classicFighters.addEventListener('click', function(event) {
     }
     currentGame.players[0].takeTurn(currentFighter, null);
     currentGame.players[1].takeTurn(null, currentGame.classicFighters);
-    setTimeout(hideElement, 200, classicFighters);
-    setTimeout(hideElement, 200, chooseFighterHeader);
+    renderPlayerFighterToken();
+    setTimeout(hideElement, 400, classicFighters);
+    setTimeout(hideElement, 400, chooseFighterHeader);
 })
 
 spaceFighters.addEventListener('click', function(event) {
     var currentFighter = event.target.dataset.spaceFighter;
-    currentGame.players[0].fighter = currentFighter;
-    setTimeout(hideElement, 200, spaceFighters);
-    setTimeout(hideElement, 200, chooseFighterHeader);
+    if(!currentFighter) {
+        return;
+    }
+    currentGame.players[0].takeTurn(currentFighter, null);
+    currentGame.players[1].takeTurn(null, currentGame.classicFighters);
+    renderPlayerFighterToken();
+    setTimeout(hideElement, 400, spaceFighters);
+    setTimeout(hideElement, 400, chooseFighterHeader);
 })
 
 function displayPlayerInfo(currentGame) {
@@ -79,4 +91,20 @@ function hideElement(element) {
 
 function showElement(element) {
     element.classList.remove('hidden');
+}
+
+
+function renderPlayerFighterToken() {
+    var currentFighter = currentGame.players[0].currentFighter;
+    for (var i = 0; i < choiceIcons.length; i++) {
+        var isClassicChoice = choiceIcons[i].dataset.classicChoiceIcon === currentFighter;
+        var isSpaceChoice = choiceIcons[i].dataset.spaceChoiceIcon === currentFighter;
+        if (currentFighter && (isClassicChoice || isSpaceChoice)) {
+            choiceIcons[i].src = currentGame.players[0].tokenSource
+            choiceIcons[i].style.opacity = "100";
+        }
+        else {
+            choiceIcons[i].style.opacity = '0'
+        }
+    }
 }

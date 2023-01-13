@@ -15,7 +15,9 @@ h3,
 .game-choice-section, 
 .player-section, 
 .choose-fighter-section,
-.fighter-section {
+.fighter-section,
+.choice-icon-container-3,
+.choice-icon-container-2 {
     display: flex;
 }
 
@@ -64,6 +66,20 @@ button {
 .small-icon {
     height: 3vw;
     width: auto;
+}
+
+.choice {
+    opacity: 0;
+}
+
+.choice-icon-container-3 {
+    width: 36vw;
+    justify-content: space-between;
+}
+
+.choice-icon-container-2 {
+    width: 18vw;
+    justify-content: space-between;
 }
 
 .hidden {
