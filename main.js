@@ -73,6 +73,7 @@ spaceFighters.addEventListener('click', function(event) {
     renderPlayerFighterToken();
     setTimeout(hideElement, 400, spaceFighters);
     setTimeout(hideElement, 400, chooseFighterHeader);
+    currentGame.determineWinner();
 })
 
 function displayPlayerInfo(currentGame) {

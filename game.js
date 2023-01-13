@@ -14,16 +14,8 @@ class Game {
         this.players[1].currentFighter = null;
     }
     determineWinner() {
-        var player1Choice = this.players[0].currentFighter;
-        var player2Choice = this.players[1].currentFighter;
-        if (this.type === 'classic') {
-            this.determineClassicWinner(player1Choice, player2Choice);
-        }
-        else {
-            this.determineSpaceWinner(player1Choice, player2Choice);
-        }
-    }
-    determineClassicWinner(choice1, choice2) {
+        var choice1 = this.players[0].currentFighter;
+        var choice2 = this.players[1].currentFighter;
         var choice1Fighter;
         if (choice1 === 'rock') {
             choice1Fighter = new Rock;
@@ -33,6 +25,12 @@ class Game {
         }
         if (choice1 === 'scissors') {
             choice1Fighter = new Scissors;
+        }
+        if (choice1 === 'alien') {
+            choice1Fighter = new Alien;
+        }
+        if (choice1 === 'laser') {
+            choice1Fighter = new Laser;
         }
 
         if (choice1Fighter.beatsFighter(choice2)) {
