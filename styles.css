@@ -16,8 +16,8 @@ h3,
 .player-section, 
 .choose-fighter-section,
 .fighter-section,
-.winner-container-3,
-.winner-container-2 {
+.choice-icon-container-3,
+.choice-icon-container-2 {
     display: flex;
 }
 
@@ -68,16 +68,16 @@ button {
     width: auto;
 }
 
-.winner {
+.choice {
     opacity: 0;
 }
 
-.winner-container-3 {
+.choice-icon-container-3 {
     width: 36vw;
     justify-content: space-between;
 }
 
-.winner-container-2 {
+.choice-icon-container-2 {
     width: 18vw;
     justify-content: space-between;
 }
