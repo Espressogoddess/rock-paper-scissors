@@ -50,11 +50,11 @@ changeGameButton.addEventListener('click', function() {
 })
 
 classicFighters.addEventListener('click', function(event) {
-    var currentFighter = event.target.dataset.classicFighter;
-    if(!currentFighter) {
+    var fighterName = event.target.dataset.classicFighter;
+    if(!fighterName) {
         return;
     }
-    currentGame.players[0].takeTurn(currentFighter, null);
+    currentGame.players[0].takeTurn(fighterName, currentGame.classicFighters);
     currentGame.players[1].takeTurn(null, currentGame.classicFighters);
     renderPlayerFighterToken();
     setTimeout(hideElement, 400, chooseFighterSection);
@@ -65,11 +65,11 @@ classicFighters.addEventListener('click', function(event) {
 })
 
 spaceFighters.addEventListener('click', function(event) {
-    var currentFighter = event.target.dataset.spaceFighter;
-    if(!currentFighter) {
+    var fighterName = event.target.dataset.spaceFighter;
+    if(!fighterName) {
         return;
     }
-    currentGame.players[0].takeTurn(currentFighter, null);
+    currentGame.players[0].takeTurn(fighterName, currentGame.spaceFighters);
     currentGame.players[1].takeTurn(null, currentGame.spaceFighters);
     renderPlayerFighterToken();
     setTimeout(hideElement, 400, chooseFighterSection);
@@ -100,13 +100,15 @@ function showElement(element) {
 
 
 function renderPlayerFighterToken() {
-    var currentFighter = currentGame.players[0].currentFighter;
     for (var i = 0; i < choiceIcons.length; i++) {
-        var isClassicChoice = choiceIcons[i].dataset.classicChoiceIcon === currentFighter;
-        var isSpaceChoice = choiceIcons[i].dataset.spaceChoiceIcon === currentFighter;
-        if (currentFighter && (isClassicChoice || isSpaceChoice)) {
-            choiceIcons[i].src = currentGame.players[0].tokenSource
-            choiceIcons[i].style.opacity = "100";
+        if (currentGame.players[0].currentFighter) {
+            var currentFighter = currentGame.players[0].currentFighter.name;
+            var isClassicChoice = choiceIcons[i].dataset.classicChoiceIcon === currentFighter;
+            var isSpaceChoice = choiceIcons[i].dataset.spaceChoiceIcon === currentFighter;
+            if (currentFighter && (isClassicChoice || isSpaceChoice)) {
+                choiceIcons[i].src = currentGame.players[0].tokenSource
+                choiceIcons[i].style.opacity = "100";
+            }   
         }
         else {
             choiceIcons[i].style.opacity = '0'
@@ -122,16 +124,18 @@ function renderResultsSection() {
     } else {
         winnerTitle = `${currentGame.winner} wins this round!`;
     }
+    var player0 = currentGame.players[0]
+    var player1 = currentGame.players[1]
     resultSection.innerHTML = `
     <h2 id="won-this-round">${winnerTitle}</h2>
       <div class="fighter-result">
-        <img class="large-icon" id="fighter1" src="${getFighterImage(currentGame.players[0].currentFighter)}">
-        <img class="large-icon" id="fighter2" src="${getFighterImage(currentGame.players[1].currentFighter)}">
+        <img class="large-icon" alt="${player0.currentFighter.altText}" src="${player0.currentFighter.imageSource}">
+        <img class="large-icon" alt="${player1.currentFighter.altText}" src="${player1.currentFighter.imageSource}">
       </div>
       <div class="choice-icon-container-2">
-          <img class="small-icon" alt="${currentGame.players[0].altText}" src="${currentGame.players[0].tokenSource}">
-          <img class="small-icon" alt="${currentGame.players[1].altText}" src="${currentGame.players[1].tokenSource}">
-        </div>
+        <img class="small-icon" alt="${player0.altText}" src="${player0.tokenSource}">
+        <img class="small-icon" alt="${player1.altText}" src="${player1.tokenSource}">
+      </div>
         <button class="new-round" type="button" id="new-round-button">Start new round</button>
           `
       showElement(resultSection);
@@ -151,19 +155,3 @@ function renderResultsSection() {
 
       })
 }
-
-function getFighterImage(fighter) {
-    if (fighter === 'alien') {
-        return 'src/alien.png';
-    } else if (fighter === 'laser') {
-        return 'src/laser gun.png';
-    } else if (fighter === 'rock') {
-        return 'src/rock.png';
-    } else if (fighter === 'paper') {
-        return 'src/paper.png';
-    } else if (fighter === 'scissors') {
-        return 'src/scissors.png';
-    }
-}
-
-//add alt text err'where

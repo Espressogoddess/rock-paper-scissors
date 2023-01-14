@@ -1,4 +1,7 @@
 class Rock {
+    name = 'rock';
+    altText = 'a brown rock with greenery poking up from behind';
+    imageSource = "src/rock.png";
     beatsFighter(opponent) {
         if (opponent === 'rock') {
             return null;
@@ -15,6 +18,9 @@ class Rock {
 }
 
 class Paper {
+    name = 'paper';
+    altText = 'three stacked pieces of yellow, green, and red paper';
+    imageSource = 'src/paper.png';
     beatsFighter(opponent) {
         if (opponent === 'rock') {
             return true;
@@ -31,6 +37,9 @@ class Paper {
 }
 
 class Scissors {
+    name = 'scissors';
+    altText = 'a pair of scissors with orange handles that are halfway open';
+    imageSource = 'src/scissors.png';
     beatsFighter(opponent) {
         if (opponent === 'rock') {
             return false;
@@ -47,6 +56,9 @@ class Scissors {
 }
 
 class Laser {
+    name = 'laser';
+    altText = 'a cartoon looking laser gun';
+    imageSource = 'src/laser gun.png';
     beatsFighter(opponent) {
         if (opponent === 'rock') {
             return false;
@@ -63,6 +75,9 @@ class Laser {
 }
 
 class Alien {
+    name = 'alien';
+    altText = 'an alien inside a space ship';
+    imageSource = 'src/alien.png';
     beatsFighter(opponent) {
         if (opponent === 'rock') {
             return true;
