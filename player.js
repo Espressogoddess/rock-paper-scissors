@@ -6,11 +6,15 @@ class Player {
         this.wins = wins;
         this.currentFighter;
     }
-    takeTurn(currentFighter, fighters) {
-        if (currentFighter) {
-            this.currentFighter = currentFighter;
+    takeTurn(fighterName, fighters) {
+        if (fighterName) {
+            for (var i = 0; i < fighters.length; i++) {
+                if (fighterName === fighters[i].name) {
+                    this.currentFighter = fighters[i];
+                }
+            }
         }
-        else if (fighters) {
+        else if (!fighterName && fighters) {
             this.currentFighter = fighters[Math.floor(Math.random() * fighters.length)];
         }
     }
