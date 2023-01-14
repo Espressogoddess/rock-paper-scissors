@@ -17,7 +17,8 @@ h3,
 .choose-fighter-section,
 .fighter-section,
 .choice-icon-container-3,
-.choice-icon-container-2 {
+.choice-icon-container-2,
+.results {
     display: flex;
 }
 
@@ -125,4 +126,9 @@ button {
 
 .line2 {
     padding-top: 50px;
+}
+
+.results {
+    flex-direction: column;
+    align-items: center;
 }

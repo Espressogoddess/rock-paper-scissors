@@ -15,7 +15,7 @@ var classicFighters = document.querySelector('#classic-fighter-section');
 var spaceFighters = document.querySelector('#space-fighter-section');
 var chooseFighterHeader = document.querySelector('#choose-fighter-header');
 var choiceIcons = document.querySelectorAll('.choice');
-
+var resultSection = document.querySelector('#result-section');
 
 
 window.addEventListener('load', function () {
@@ -46,6 +46,7 @@ changeGameButton.addEventListener('click', function() {
     currentGame.startNewGame(null);
     hideElement(chooseFighterSection);
     showElement(chooseGame);
+    hideElement(resultSection);
 })
 
 classicFighters.addEventListener('click', function(event) {
@@ -56,10 +57,11 @@ classicFighters.addEventListener('click', function(event) {
     currentGame.players[0].takeTurn(currentFighter, null);
     currentGame.players[1].takeTurn(null, currentGame.classicFighters);
     renderPlayerFighterToken();
-    setTimeout(hideElement, 400, classicFighters);
-    setTimeout(hideElement, 400, chooseFighterHeader);
+    setTimeout(hideElement, 400, chooseFighterSection);
     currentGame.determineWinner();
     displayPlayerInfo(currentGame);
+    setTimeout(renderResultsSection, 400);
+    // setTimeout(hideElement, 2000, resultSection);
 })
 
 spaceFighters.addEventListener('click', function(event) {
@@ -68,12 +70,13 @@ spaceFighters.addEventListener('click', function(event) {
         return;
     }
     currentGame.players[0].takeTurn(currentFighter, null);
-    currentGame.players[1].takeTurn(null, currentGame.classicFighters);
+    currentGame.players[1].takeTurn(null, currentGame.spaceFighters);
     renderPlayerFighterToken();
-    setTimeout(hideElement, 400, spaceFighters);
-    setTimeout(hideElement, 400, chooseFighterHeader);
+    setTimeout(hideElement, 400, chooseFighterSection);
     currentGame.determineWinner();
     displayPlayerInfo(currentGame);
+    setTimeout(renderResultsSection, 400);
+    // setTimeout(hideElement, 2000, resultSection);
 })
 
 function displayPlayerInfo(currentGame) {
@@ -110,3 +113,57 @@ function renderPlayerFighterToken() {
         }
     }
 }
+
+function renderResultsSection() {
+    resultSection.innerHTML ='';
+    var winnerTitle;
+    if (currentGame.winner === 'draw') {
+        winnerTitle = 'Draw!'
+    } else {
+        winnerTitle = `${currentGame.winner} wins this round!`;
+    }
+    resultSection.innerHTML = `
+    <h2 id="won-this-round">${winnerTitle}</h2>
+      <div class="fighter-result">
+        <img class="large-icon" id="fighter1" src="${getFighterImage(currentGame.players[0].currentFighter)}">
+        <img class="large-icon" id="fighter2" src="${getFighterImage(currentGame.players[1].currentFighter)}">
+      </div>
+      <div class="choice-icon-container-2">
+          <img class="small-icon" alt="${currentGame.players[0].altText}" src="${currentGame.players[0].tokenSource}">
+          <img class="small-icon" alt="${currentGame.players[1].altText}" src="${currentGame.players[1].tokenSource}">
+        </div>
+        <button class="new-round" type="button" id="new-round-button">Start new round</button>
+          `
+      showElement(resultSection);
+      var newRoundButton = document.querySelector('#new-round-button');
+      newRoundButton.addEventListener('click', function() {
+        currentGame.players[0].currentFighter = null;
+        currentGame.players[1].currentFighter = null;
+        hideElement(resultSection);
+        showElement(chooseFighterHeader);
+        showElement(chooseFighterSection);
+        renderPlayerFighterToken();
+        if (currentGame.type === 'classic') {
+            showElement(classicFighters);
+        } else if (currentGame.type === 'space') {
+            showElement(spaceFighters);
+        }
+
+      })
+}
+
+function getFighterImage(fighter) {
+    if (fighter === 'alien') {
+        return 'src/alien.png';
+    } else if (fighter === 'laser') {
+        return 'src/laser gun.png';
+    } else if (fighter === 'rock') {
+        return 'src/rock.png';
+    } else if (fighter === 'paper') {
+        return 'src/paper.png';
+    } else if (fighter === 'scissors') {
+        return 'src/scissors.png';
+    }
+}
+
+//add alt text err'where
