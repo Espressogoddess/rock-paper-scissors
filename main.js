@@ -122,7 +122,7 @@ function renderPlayerFighterToken() {
             var isSpaceChoice = choiceIcons[i].dataset.spaceChoiceIcon === currentFighter;
             if (currentFighter && (isClassicChoice || isSpaceChoice)) {
                 choiceIcons[i].src = currentGame.players[0].tokenSource
-                choiceIcons[i].style.opacity = "100";
+                choiceIcons[i].style.opacity = "1";
             }   
         }
         else {
@@ -144,13 +144,21 @@ function renderResultsSection() {
     resultSection.innerHTML = `
     <h2 id="won-this-round">${winnerTitle}</h2>
       <div class="fighter-result">
-        <img class="large-icon" alt="${player0.currentFighter.altText}" src="${player0.currentFighter.imageSource}">
-        <img class="large-icon" alt="${player1.currentFighter.altText}" src="${player1.currentFighter.imageSource}">
+        <img class="large-icon" id="player0" alt="${player0.currentFighter.altText}" src="${player0.currentFighter.imageSource}">
+        <img class="large-icon" id="player1" alt="${player1.currentFighter.altText}" src="${player1.currentFighter.imageSource}">
       </div>
       <div class="choice-icon-container-2">
         <img class="small-icon" alt="${player0.altText}" src="${player0.tokenSource}">
         <img class="small-icon" alt="${player1.altText}" src="${player1.tokenSource}">
       </div>
           `
+          if (currentGame.winner === 'Computer') {
+            var astroFighter = document.querySelector('#player0');
+            astroFighter.style.opacity = ".3";
+          } 
+          else if (currentGame.winner === 'AstroKitty') {
+            var compFighter = document.querySelector('#player1');
+            compFighter.style.opacity = ".3"
+          }
       showElement(resultSection);
 }
