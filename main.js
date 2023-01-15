@@ -61,8 +61,18 @@ classicFighters.addEventListener('click', function(event) {
     currentGame.determineWinner();
     displayPlayerInfo(currentGame);
     setTimeout(renderResultsSection, 400);
-    // setTimeout(hideElement, 2000, resultSection);
+    setTimeout(hideElement, 2000, resultSection);
+    console.log(currentGame)
+    setTimeout(function() {
+        currentGame.startNewGame("classic")
+    }, 1500);
+    console.log(currentGame)
+    setTimeout(renderPlayerFighterToken, 2000);
+    setTimeout(showElement, 2000, chooseFighterSection);
 })
+function resetGame() {
+    currentGame.startNewGame("classic")
+}
 
 spaceFighters.addEventListener('click', function(event) {
     var fighterName = event.target.dataset.spaceFighter;
@@ -76,7 +86,12 @@ spaceFighters.addEventListener('click', function(event) {
     currentGame.determineWinner();
     displayPlayerInfo(currentGame);
     setTimeout(renderResultsSection, 400);
-    // setTimeout(hideElement, 2000, resultSection);
+    setTimeout(hideElement, 2000, resultSection);
+    setTimeout(function() {
+        currentGame.startNewGame("space")
+    }, 1500);
+    setTimeout(renderPlayerFighterToken, 2000);
+    setTimeout(showElement, 2000, chooseFighterSection);
 })
 
 function displayPlayerInfo(currentGame) {
