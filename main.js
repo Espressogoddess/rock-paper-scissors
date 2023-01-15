@@ -16,6 +16,8 @@ var spaceFighters = document.querySelector('#space-fighter-section');
 var chooseFighterHeader = document.querySelector('#choose-fighter-header');
 var choiceIcons = document.querySelectorAll('.choice');
 var resultSection = document.querySelector('#result-section');
+var timerID1;
+var timerID2;
 
 
 window.addEventListener('load', function () {
@@ -47,6 +49,8 @@ changeGameButton.addEventListener('click', function() {
     hideElement(chooseFighterSection);
     showElement(chooseGame);
     hideElement(resultSection);
+    clearTimeout(timerID1);
+    clearTimeout(timerID2);
 })
 
 classicFighters.addEventListener('click', function(event) {
@@ -57,22 +61,19 @@ classicFighters.addEventListener('click', function(event) {
     currentGame.players[0].takeTurn(fighterName, currentGame.classicFighters);
     currentGame.players[1].takeTurn(null, currentGame.classicFighters);
     renderPlayerFighterToken();
-    setTimeout(hideElement, 400, chooseFighterSection);
     currentGame.determineWinner();
     displayPlayerInfo(currentGame);
-    setTimeout(renderResultsSection, 400);
-    setTimeout(hideElement, 2000, resultSection);
-    console.log(currentGame)
-    setTimeout(function() {
-        currentGame.startNewGame("classic")
-    }, 1500);
-    console.log(currentGame)
-    setTimeout(renderPlayerFighterToken, 2000);
-    setTimeout(showElement, 2000, chooseFighterSection);
+    timerID1 = setTimeout(function() {
+        hideElement(chooseFighterSection);
+        renderResultsSection()
+    }, 400);   
+    timerID2 = setTimeout(function() {
+        hideElement(resultSection);
+        currentGame.startNewGame("classic");
+        renderPlayerFighterToken();
+        showElement(chooseFighterSection);
+    }, 2000);
 })
-function resetGame() {
-    currentGame.startNewGame("classic")
-}
 
 spaceFighters.addEventListener('click', function(event) {
     var fighterName = event.target.dataset.spaceFighter;
@@ -82,16 +83,18 @@ spaceFighters.addEventListener('click', function(event) {
     currentGame.players[0].takeTurn(fighterName, currentGame.spaceFighters);
     currentGame.players[1].takeTurn(null, currentGame.spaceFighters);
     renderPlayerFighterToken();
-    setTimeout(hideElement, 400, chooseFighterSection);
     currentGame.determineWinner();
     displayPlayerInfo(currentGame);
-    setTimeout(renderResultsSection, 400);
-    setTimeout(hideElement, 2000, resultSection);
-    setTimeout(function() {
-        currentGame.startNewGame("space")
-    }, 1500);
-    setTimeout(renderPlayerFighterToken, 2000);
-    setTimeout(showElement, 2000, chooseFighterSection);
+    timerID1 = setTimeout(function() {
+        hideElement(chooseFighterSection);
+        renderResultsSection()
+    }, 400);   
+    timerID2 = setTimeout(function() {
+        hideElement(resultSection);
+        currentGame.startNewGame("space");
+        renderPlayerFighterToken();
+        showElement(chooseFighterSection);
+    }, 2000);
 })
 
 function displayPlayerInfo(currentGame) {

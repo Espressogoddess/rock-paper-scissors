@@ -17,6 +17,7 @@ class Game {
         this.type = gameType;
         this.players[0].currentFighter = null;
         this.players[1].currentFighter = null;
+        this.winner = null;
     }
     determineWinner() {
         var fighter0 = this.players[0].currentFighter;
