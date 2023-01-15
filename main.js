@@ -136,22 +136,6 @@ function renderResultsSection() {
         <img class="small-icon" alt="${player0.altText}" src="${player0.tokenSource}">
         <img class="small-icon" alt="${player1.altText}" src="${player1.tokenSource}">
       </div>
-        <button class="new-round" type="button" id="new-round-button">Start new round</button>
           `
       showElement(resultSection);
-      var newRoundButton = document.querySelector('#new-round-button');
-      newRoundButton.addEventListener('click', function() {
-        currentGame.players[0].currentFighter = null;
-        currentGame.players[1].currentFighter = null;
-        hideElement(resultSection);
-        showElement(chooseFighterHeader);
-        showElement(chooseFighterSection);
-        renderPlayerFighterToken();
-        if (currentGame.type === 'classic') {
-            showElement(classicFighters);
-        } else if (currentGame.type === 'space') {
-            showElement(spaceFighters);
-        }
-
-      })
 }
