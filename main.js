@@ -13,7 +13,6 @@ var chooseGame = document.querySelector('#choose-game-section');
 var chooseFighterSection = document.querySelector('#choose-fighter-section')
 var classicFighters = document.querySelector('#classic-fighter-section');
 var spaceFighters = document.querySelector('#space-fighter-section');
-var chooseFighterHeader = document.querySelector('#choose-fighter-header');
 var choiceIcons = document.querySelectorAll('.choice');
 var resultSection = document.querySelector('#result-section');
 var timerID1;
