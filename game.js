@@ -5,11 +5,14 @@ class Game {
         var rock = new Rock;
         var paper = new Paper;
         var scissors = new Scissors;
-        var laser = new Laser;
+        var moonRock = new MoonRock;
+        var mantaRay = new MantaRay;
+        var planet = new Planet;
+        var probe = new Probe;
         var alien = new Alien;
         this.players = [astroKitty, computer];
         this.classicFighters = [rock, paper, scissors];
-        this.spaceFighters = [rock, paper, scissors, laser, alien];
+        this.spaceFighters = [moonRock, planet, mantaRay, probe, alien];
         this.type;
         this.winner;
     }
