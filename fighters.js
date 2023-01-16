@@ -9,10 +9,6 @@ class Rock {
             return false;
         } else if (opponent === 'scissors') {
             return true;
-        } else if (opponent === 'alien') {
-            return false;
-        } else if (opponent === 'laser') {
-            return true;
         }
     }
 }
@@ -27,10 +23,6 @@ class Paper {
         } else if (opponent === 'paper') {
             return null;
         } else if (opponent === 'scissors') {
-            return false;
-        } else if (opponent === 'alien') {
-            return true;
-        } else if (opponent === 'laser') {
             return false;
         }
     }
@@ -47,28 +39,80 @@ class Scissors {
             return true;
         } else if (opponent === 'scissors') {
             return null;
+        }
+    }
+}
+class MoonRock {
+    name = 'moonRock';
+    altText = 'a floating chunk of lunar rock';
+    imageSource = "src/moon-rock.png";
+    beatsFighter(opponent) {
+        if (opponent === 'moonRock') {
+            return null;
+        } else if (opponent === 'planet') {
+            return false;
+        } else if (opponent === 'mantaRay') {
+            return true;
         } else if (opponent === 'alien') {
             return false;
-        } else if (opponent === 'laser') {
+        } else if (opponent === 'probe') {
             return true;
         }
     }
 }
 
-class Laser {
-    name = 'laser';
-    altText = 'a cartoon looking laser gun';
-    imageSource = 'src/laser gun.png';
+class Planet {
+    name = 'planet';
+    altText = 'a green luminescent satellite complete with ring';
+    imageSource = 'src/planet.png';
     beatsFighter(opponent) {
-        if (opponent === 'rock') {
-            return false;
-        } else if (opponent === 'paper') {
+        if (opponent === 'moonRock') {
             return true;
-        } else if (opponent === 'scissors') {
+        } else if (opponent === 'planet') {
+            return null;
+        } else if (opponent === 'mantaRay') {
             return false;
         } else if (opponent === 'alien') {
             return true;
-        } else if (opponent === 'laser') {
+        } else if (opponent === 'probe') {
+            return false;
+        }
+    }
+}
+
+class MantaRay {
+    name = 'mantaRay';
+    altText = 'a purple mysterious astral-aqueous being';
+    imageSource = 'src/manta-ray.png';
+    beatsFighter(opponent) {
+        if (opponent === 'moonRock') {
+            return false;
+        } else if (opponent === 'planet') {
+            return true;
+        } else if (opponent === 'mantaRay') {
+            return null;
+        } else if (opponent === 'alien') {
+            return false;
+        } else if (opponent === 'probe') {
+            return true;
+        }
+    }
+}
+
+class Probe {
+    name = 'probe';
+    altText = 'a sleek device searching for perimeter weaknesses';
+    imageSource = 'src/probe.png';
+    beatsFighter(opponent) {
+        if (opponent === 'moonRock') {
+            return false;
+        } else if (opponent === 'planet') {
+            return true;
+        } else if (opponent === 'mantaRay') {
+            return false;
+        } else if (opponent === 'alien') {
+            return true;
+        } else if (opponent === 'probe') {
             return null;
         }
     }
@@ -79,15 +123,15 @@ class Alien {
     altText = 'an alien inside a space ship';
     imageSource = 'src/alien.png';
     beatsFighter(opponent) {
-        if (opponent === 'rock') {
+        if (opponent === 'moonRock') {
             return true;
-        } else if (opponent === 'paper') {
+        } else if (opponent === 'planet') {
             return false;
-        } else if (opponent === 'scissors') {
+        } else if (opponent === 'mantaRay') {
             return true;
         } else if (opponent === 'alien') {
             return null;
-        } else if (opponent === 'laser') {
+        } else if (opponent === 'probe') {
             return false;
         }
     }
