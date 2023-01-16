@@ -132,3 +132,19 @@ button {
     flex-direction: column;
     align-items: center;
 }
+
+.rules-accent {
+    color:rgb(198, 173, 173)
+}
+
+.game-choices .small-icon {
+    margin-left: 10px;
+    position: relative;
+    bottom: 10px;
+}
+ul {
+    list-style: none;
+    line-height: 2;
+    padding-left: 0;
+    margin-top: 0;
+}
