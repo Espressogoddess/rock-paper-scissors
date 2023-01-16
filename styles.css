@@ -37,7 +37,7 @@ body {
     width: 99vw;
     height: 75%;
     background-color: black;
-    background-image: url(src/EmptyStarfield.jpg);
+    background-image: url(src/empty-starfield.jpg);
     color: white;
 }
 

@@ -1,6 +1,6 @@
 class Game {
     constructor() {
-        var astroKitty = new Player('AstroKitty', 'src/cat astronaut.png', 'Astronaut kitty icon', 0, );
+        var astroKitty = new Player('AstroKitty', 'src/cat-astronaut.png', 'Astronaut kitty icon', 0, );
         var computer = new Player('Computer', 'src/computer.png', 'Computer icon', 0);
         var rock = new Rock;
         var paper = new Paper;
