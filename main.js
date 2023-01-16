@@ -157,11 +157,11 @@ function renderResultsSection() {
           `
           if (currentGame.winner === 'Computer') {
             var astroFighter = document.querySelector('#player0');
-            astroFighter.style.opacity = ".3";
+            astroFighter.style.opacity = ".5";
           } 
           else if (currentGame.winner === 'AstroKitty') {
             var compFighter = document.querySelector('#player1');
-            compFighter.style.opacity = ".3"
+            compFighter.style.opacity = ".5"
           }
       showElement(resultSection);
 }

@@ -2,9 +2,6 @@
     font-family: Tahoma, Verdana, sans-serif;
 }
 
-html {
-    background-color: rosybrown;
-}
 
 html,
 main, 
@@ -39,6 +36,9 @@ body {
     align-items: center;
     width: 99vw;
     height: 75%;
+    background-color: black;
+    background-image: url(src/EmptyStarfield.jpg);
+    color: white;
 }
 
 h2 {
@@ -49,9 +49,9 @@ button {
     margin-top: 20px;
     color: white;
     background-color: rosybrown;
-    width: 11vw;
-    height: 3vw;
-    border-radius: 3px;
+    width: 135px;
+    height: 33px;
+    border-radius: 5px;
 }
 
 .large-icon {
@@ -88,14 +88,16 @@ button {
 }
 
 .game-choices {
-    border: solid black 1px;
+    /* border: solid black 1px;
     background-color: rgb(219, 165, 165);
-    border-radius: 2px;
+    border-radius: 2px; */
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     width: 26vw;
     margin: 3vw;
+    margin-top: 32px;
     padding: 1vw 3vw;
+    min-width: 200px;
 }
 
 .game-choice-section {
@@ -105,12 +107,21 @@ button {
 }
 
 .player-section {
-    background-color: rgb(219, 165, 165);
+    margin-top: 80px;
     width: 20vw;
     flex-direction: column;
     align-items: center;
-    padding-top: 5vh;
-    height: 78vh;
+    padding-top: 20px;
+    height: 250px;
+    min-width: 200px;
+}
+.player-section,
+.game-choices {
+    border:rgba(219, 165, 165, .9) 3px solid;
+    background-color: rgba(140, 97, 97, .9);
+    border-style: double;
+    border-radius: 7px;
+
 }
 
 .choose-fighter-section {
@@ -119,7 +130,8 @@ button {
 }
 
 .fighter-section {
-    margin-top: 12vh;
+    min-width: 400px;
+    margin-top: 100px;
     flex-direction: column;
     align-items: center;
 }
@@ -131,6 +143,10 @@ button {
 .results {
     flex-direction: column;
     align-items: center;
+}
+
+.fighter-result {
+    margin-top: 83px;
 }
 
 .rules-accent {
@@ -147,4 +163,12 @@ ul {
     line-height: 2;
     padding-left: 0;
     margin-top: 0;
+}
+button,
+.game-choices,
+#choose-fighter-section .large-icon {
+    cursor: pointer;
+}
+button:hover {
+    background-color: rgb(201, 165, 165);
 }
