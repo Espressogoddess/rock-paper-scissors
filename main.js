@@ -1,5 +1,7 @@
+/*--------------Data Model--------------*/
 var currentGame = new Game;
 
+/*--------------DOM Elements--------------*/
 var astroName = document.querySelector('#astro-name');
 var compName = document.querySelector('#comp-name');
 var astroWins = document.querySelector('#astro-wins');
@@ -18,7 +20,7 @@ var resultSection = document.querySelector('#result-section');
 var timerID1;
 var timerID2;
 
-
+/*----------------Event Listeners-----------------*/
 window.addEventListener('load', function () {
     displayPlayerInfo(currentGame);
 })
@@ -96,6 +98,7 @@ spaceFighters.addEventListener('click', function(event) {
     }, 2000);
 })
 
+/*------------------Functions---------------*/
 function displayPlayerInfo(currentGame) {
     astroName.innerText = currentGame.players[0].name;
     astroWins.innerText = currentGame.players[0].wins;
