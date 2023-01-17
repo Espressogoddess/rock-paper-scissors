@@ -1,23 +1,14 @@
-html,
-main, 
-header, 
-body,
-h3,
-.game-choices, 
-.game-choice-section, 
-.player-section, 
-.choose-fighter-section,
-.fighter-section,
-.choice-icon-container-3,
-.choice-icon-container-2,
-.results {
-    display: flex;
-}
-
-
 main {
     justify-content: space-between;
     width: 98vw;
+}
+
+body {
+    font-family: monospace;
+    font-size: 1.1em;
+    background-color: black;
+    background-image: url(src/empty-starfield.jpg);
+    color: rgb(246, 225, 225);
 }
 
 header {
@@ -26,18 +17,15 @@ header {
     height: 7vh;
 }
 
-body {
-    font-family: monospace;
-    font-size: 1.1em;
-    flex-direction: column;
-    align-items: center;
-    background-color: black;
-    background-image: url(src/empty-starfield.jpg);
-    color: rgb(246, 225, 225);
-}
-
 h2 {
     text-align: center;
+}
+
+ul {
+    list-style: none;
+    line-height: 2;
+    padding-left: 0;
+    margin-top: 0;
 }
 
 button {
@@ -47,6 +35,18 @@ button {
     width: 135px;
     height: 33px;
     border-radius: 5px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.align-center {
+    align-items: center;
 }
 
 .large-icon {
@@ -79,8 +79,11 @@ button {
     display: none;
 }
 
+.fighter-loser {
+    opacity: .5;
+}
+
 .game-choices {
-    flex-direction: column;
     width: 26vw;
     margin: 3vw;
     margin-top: 32px;
@@ -88,49 +91,31 @@ button {
     min-width: 200px;
 }
 
-.game-choice-section {
-    width: 60vw;
-    flex-direction: column;
-    align-items: center;
-}
-
 .player-section {
     margin-top: 80px;
     width: 20vw;
-    flex-direction: column;
-    align-items: center;
     padding-top: 20px;
     height: 250px;
     min-width: 200px;
 }
+
 .player-section,
 .game-choices {
-    border:rgba(219, 165, 165, .9) 3px solid;
+    border: rgba(219, 165, 165, .9) 3px solid;
     background-color: rgba(80, 56, 56, 0.9);
     border-style: double;
     border-radius: 7px;
 
 }
 
-.choose-fighter-section {
-    flex-direction: column;
-    align-items: center;
-}
 
 .fighter-section {
     min-width: 400px;
     margin-top: 100px;
-    flex-direction: column;
-    align-items: center;
 }
 
 .line2 {
     padding-top: 50px;
-}
-
-.results {
-    flex-direction: column;
-    align-items: center;
 }
 
 .fighter-result {
@@ -138,7 +123,7 @@ button {
 }
 
 .rules-accent {
-    color:rgb(198, 173, 173)
+    color: rgb(198, 173, 173)
 }
 
 .game-choices .small-icon {
@@ -146,17 +131,13 @@ button {
     position: relative;
     bottom: 10px;
 }
-ul {
-    list-style: none;
-    line-height: 2;
-    padding-left: 0;
-    margin-top: 0;
-}
+
 button,
 .game-choices,
 #choose-fighter-section .large-icon {
     cursor: pointer;
 }
+
 button:hover {
     background-color: rgb(201, 165, 165);
 }
