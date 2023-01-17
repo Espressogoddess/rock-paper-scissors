@@ -160,3 +160,7 @@ button,
 button:hover {
     background-color: rgb(201, 165, 165);
 }
+
+.game-choices:hover {
+    background-color: rgb(100, 76, 76);
+}
