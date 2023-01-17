@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="d-flex">
 
 <head>
   <meta charset="UTF-8">
@@ -8,29 +8,29 @@
   <link rel="stylesheet" href="styles.css">
   <title>Rock Paper Scissors</title>
 </head>
-<body>
-  <header>
+<body class="d-flex flex-column align-center">
+  <header class="d-flex">
     <h1>Rock, Paper, Scissors</h1>
   </header>
-  <main>
-    <section class="player-section" id="astro-section">
+  <main class="d-flex">
+    <section class="player-section  d-flex flex-column align-center">
       <img class="player-icon" id="astro-icon">
-      <h2 class="player-name" id="astro-name"></h2>
+      <h2 id="astro-name"></h2>
       <p>Wins: <span id="astro-wins"></span></p>
       <button class="hidden change-game" id="change-game-button" type="button">Change game</button>
     </section>
     <section id="choose-game-section">
       <h2>Choose your game</h2>
-      <section class="game-choices" id="classic-game">
-        <h3>Classic<img class="small-icon" src="src/rock.png"><img class="small-icon" src="src/paper.png"><img class="small-icon" src="src/scissors.png"></h3>
+      <section class="game-choices d-flex flex-column" id="classic-game">
+        <h3 class="d-flex">Classic<img class="small-icon" src="src/rock.png"><img class="small-icon" src="src/paper.png"><img class="small-icon" src="src/scissors.png"></h3>
         <ul>
           <li>Rock <span class="rules-accent">beats</span> Scissors</li>
           <li>Scissors <span class="rules-accent">beats</span> Paper</li>
           <li>Paper <span class="rules-accent">beats</span> Rock</li>
         </ul>
       </section>
-      <section class="game-choices" id="space-game">
-        <h3>Space<img class="small-icon" src="src/alien.png"><img class="small-icon" src="src/probe.png"><img class="small-icon" src="src/moon-rock.png"><img class="small-icon" src="src/manta-ray.png"><img class="small-icon" src="src/planet.png"></h3>
+      <section class="game-choices d-flex flex-column" id="space-game">
+        <h3 class="d-flex">Space<img class="small-icon" src="src/alien.png"><img class="small-icon" src="src/probe.png"><img class="small-icon" src="src/moon-rock.png"><img class="small-icon" src="src/manta-ray.png"><img class="small-icon" src="src/planet.png"></h3>
         <ul>
           <li>Alien <span class="rules-accent">beats</span> Manta Ray & Moon Rock</li>
           <li>Probe <span class="rules-accent">beats</span> Planet & Alien</li>
@@ -42,25 +42,25 @@
     </section>
     <section class="hidden" id="choose-fighter-section" >
       <h2>Choose your Fighter</h2>
-      <section class="fighter-section hidden" id="classic-fighter-section">
+      <section class="fighter-section hidden d-flex flex-column align-center" id="classic-fighter-section">
         <div>
           <img class="large-icon" data-classic-fighter="rock" src="src/rock.png">
           <img class="large-icon" data-classic-fighter="paper" src="src/paper.png">
           <img class="large-icon" data-classic-fighter="scissors" src="src/scissors.png">
         </div>
-        <div class="choice-icon-container-3">
+        <div class="choice-icon-container-3 d-flex">
           <img class="small-icon choice" data-classic-choice-icon="rock" src="src/placeholder-image.png">
           <img class="small-icon choice" data-classic-choice-icon="paper" src="src/placeholder-image.png">
           <img class="small-icon choice" data-classic-choice-icon="scissors" src="src/placeholder-image.png">
         </div>
       </section>
-      <section class="fighter-section hidden" id="space-fighter-section">
+      <section class="fighter-section hidden  d-flex flex-column align-center" id="space-fighter-section">
         <div>
           <img class="large-icon" title="moon rock" data-space-fighter="moonRock" src="src/moon-rock.png">
           <img class="large-icon" title="planet" data-space-fighter="planet" src="src/planet.png">
           <img class="large-icon" title="manta ray" data-space-fighter="mantaRay" src="src/manta-ray.png">
         </div>
-        <div class="choice-icon-container-3">
+        <div class="choice-icon-container-3 d-flex">
           <img class="small-icon choice" data-space-choice-icon="moonRock" src="src/placeholder-image.png">
           <img class="small-icon choice" data-space-choice-icon="planet" src="src/placeholder-image.png">
           <img class="small-icon choice" data-space-choice-icon="mantaRay" src="src/placeholder-image.png">
@@ -69,17 +69,17 @@
           <img class="large-icon" title="alien" data-space-fighter="alien" src="src/alien.png">
           <img class="large-icon" title="probe" data-space-fighter="probe" src="src/probe.png">
         </div>
-        <div class="choice-icon-container-2">
+        <div class="choice-icon-container-2 d-flex">
           <img class="small-icon choice" data-space-choice-icon="alien" src="src/placeholder-image.png">
           <img class="small-icon choice" data-space-choice-icon="probe" src="src/placeholder-image.png">
         </div>
       </section>
     </section>
-    <section class="hidden results" id="result-section">
+    <section class="hidden results d-flex flex-column align-center" id="result-section">
     </section>
-    <section class="player-section" id="computer-section">
+    <section class="player-section  d-flex flex-column align-center" id="computer-section">
       <img class="player-icon" id="comp-icon">
-      <h2 class="player-name" id="comp-name"></h2>
+      <h2 id="comp-name"></h2>
       <p>Wins: <span id="comp-wins"></span></p>
     </section>
   </main>
