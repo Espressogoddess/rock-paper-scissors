@@ -1,5 +1,7 @@
 # rock-paper-scissors
 
+[rock-paper-scissors](https://espressogoddess.github.io/rock-paper-scissors/).
+
 ## Abstract:
 - I built an app that allows users to play rock, paper, scissors against a computer player. There are two modes: classic and space. The classic mode consists of the rock, paper, scissors. The space mode consists of 5 choices: probe, planet, alien, manta ray, and moon rock.
 - Users are able to see both their score and the computer's score.
@@ -11,9 +13,6 @@
 1. In terminal, run `cd rock-paper-scissors` to move into the project directory.
 1. In terminal, `open index.html` to launch the application in the web browser.
 1. Play the game to your heart's content.
-
-### Or:
-Click on this [deployable link](https://espressogoddess.github.io/rock-paper-scissors/).
 
 ## Preview of App:
 ![image](src/app-preview.png)
